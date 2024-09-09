@@ -1,0 +1,181 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consult Us</title>
+    {% tailwind_css %}
+</head>
+<body>
+    <div class="min-h-screen py-3 px-3 flex flex-col  ">
+ <!-- Navbar -->
+ <nav class="fixed top-0 left-0 w-full bg-white shadow-lg z-50">
+    <div class="flex items-center justify-around p-1">
+        <!-- Logo Section -->
+        <div class="flex items-center gap-5">
+            <a href="">
+                <img src="{% static 'images/LOGO.png'%}" alt="Logo" width="80">
+            </a>
+        </div>
+
+        <!-- Navigation Links (Desktop) -->
+        <div class="hidden md:flex flex-col items-center gap-5 md:flex-row md:justify-center">
+            <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'homepage'%}">Home</a>
+            <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="#">Models</a>
+            <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="#">Courses</a>
+            <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'viewersblog' %}">Blog</a>
+            <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="#">Projects</a>
+        </div>
+
+        <!-- Action Buttons (Desktop) -->
+        <div class="hidden md:flex items-center gap-5">
+            {% if user.is_authenticated %}
+            <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'logout'%}">Logout</a>
+            {% else %}
+            <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'login'%}">Sign In</a>
+            {% endif %}
+   
+        </div>
+
+        <!-- Mobile Menu Icon -->
+        <div class="md:hidden flex items-center">
+            <button id="menu-btn" class="text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Links -->
+    <div id="mobile-menu" class="hidden md:hidden flex flex-col items-center gap-4 mt-4 bg-white shadow-lg p-4">
+        <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'homepage'%}">Home</a>
+        <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="#">Models</a>
+        <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="#">Courses</a>
+        <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'viewersblog' %}">Blog</a>
+        <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="#">Projects</a>
+        {% if user.is_authenticated %}
+        <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'logout'%}">Logout</a>
+        {% else %}
+        <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'login'%}">Sign In</a>
+        {% endif %}
+      
+    </div>
+</nav>
+<!-- End of navbar -->
+
+<!-- Script to Toggle Mobile Menu -->
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
+
+<!-- end of navbar -->
+
+<section class="bg-gray-500 py-16 mt-10">
+    <div class="max-w-lg mx-auto bg-white p-10 rounded-lg shadow-lg text-center">
+        <div class="mb-6">
+            <div class="w-full flex justify-center items-center">
+                <img src="{% static 'images/paymentsucessful.png'%}" class="w-32 rounded-full" alt="Data Science">
+            </div>
+        </div>
+        <h1 class="text-3xl font-bold text-green-600 mb-4">Payment Successful!</h1>
+        <p class="text-gray-700 mb-6">Thank you for your payment. Your transaction has been completed successfully.</p>
+        <a href="/" class="inline-block bg-indigo-500 text-white py-2 px-4 rounded hover:bg-indigo-600 transition duration-300">Return to Home</a>
+    </div>
+</section>
+
+
+
+
+
+<!-- CONTACT US -->
+<div class="bg-gray-800>
+    <section class="bg-gray-100 py-16 mb-0">
+      
+        <!-- Contact Us Section -->
+        <div class="bg-gray-800 py-16 text-center text-white">
+            <h2 class="text-4xl font-extrabold">Have Any Questions?</h2>
+            <p class="text-lg mt-4 max-w-2xl mx-auto">Get in touch with us for more information on our consultation services. We're here to help you bring your AI vision to life.</p>
+            <a href="mailto:felixsam922@gmail.com" class="inline-block bg-indigo-500 text-white font-bold mt-6 py-2 px-6 rounded-lg">Contact Us</a>
+        </div>
+    </section>
+
+
+
+
+    <!-- Footer -->
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-10 text-center">
+    <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 px-5">
+        <!-- Company Section -->
+        <div>
+            <h2 class="text-xl text-left font-semibold mb-4 underline">Company</h2>
+            <ul class="text-left">
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">About Us</a></li>
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">Careers</a></li>
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">Partners</a></li>
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Industries Section -->
+        <div>
+            <h2 class="text-xl text-left font-semibold mb-4 underline">Industries</h2>
+            <ul class="text-left">
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">Education</a></li>
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">Retail</a></li>
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">Manufacturing</a></li>
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">Transportation</a></li>
+            </ul>
+        </div>
+
+        <!-- Models Section -->
+        <div>
+            <h2 class="text-xl text-left font-semibold mb-4 underline">Models</h2>
+            <ul class="text-left">
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">Fire Detection</a></li>
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">License Plate Model</a></li>
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">Drone Detection Model</a></li>
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">Explore All Models</a></li>
+            </ul>
+        </div>
+
+        <!-- Courses Section -->
+        <div>
+            <h2 class="text-xl text-left font-semibold mb-4 underline">Courses</h2>
+            <ul class="text-left">
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">Computer Vision</a></li>
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">Build Chatbots</a></li>
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">License </a></li>
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">Line Detection</a></li>
+            </ul>
+        </div>
+
+        <!-- Help Section -->
+        <div class="col-span-2 sm:col-span-2 lg:col-span-1 ">
+            <h2 class="text-xl text-left font-semibold mb-4 underline">Help</h2>
+            <ul class="text-left">
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">Privacy Policy</a></li>
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">Terms of Service</a></li>
+                <li class="mb-2"><a href="#" class="hover:text-blue-400">Cookie Policy</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="border-t border-gray-700 mt-8"></div>
+    
+    <div class="mt-3 pt-6 text-center">
+        <p>&copy; 2024 Tech Watt. All rights reserved.</p>
+    </div>
+</footer>
+</div>
+
+</div>  
+</body>
+</html>

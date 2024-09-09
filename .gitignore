@@ -1,0 +1,6 @@
+tech/
+.env
+.dockerignore
+consultation/migrations/
+userauth/migrations/
+blog/migrations/
