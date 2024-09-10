@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'userauth',
     'consultation',
     'blog',
+    'projects',
     'tailwind',
     'theme', 
     'django_browser_reload'
