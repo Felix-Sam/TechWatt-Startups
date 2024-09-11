@@ -10,17 +10,17 @@
 <body>
        
 <div class="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8">
-    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <img class="mx-auto " src="{% static 'userauth/images/LOGO.png'%}" alt="LOGO" width="130">
-      <h2 class="mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign up for an account</h2>
-    </div>
-  
-    <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
+    
+    <div class="mt-2 border-4 border-white shadow-lg p-4 shadow-orange-50 rounded sm:mx-auto sm:w-full sm:max-w-sm">
+      <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <img class="mx-auto " src="{% static 'userauth/images/LOGO.png'%}" alt="LOGO" width="130">
+        <h2 class="mt-3 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign up for an account</h2>
+      </div>
       <form class="space-y-6" action="#" method="POST">
         {% csrf_token %}
         <div>
           <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
-          <div class="mt-2">
+          <div class="mt-1">
             <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
@@ -29,8 +29,8 @@
           <div class="flex items-center justify-between">
             <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
           </div>
-          <div class="mt-2">
-            <input id="password" name="password" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          <div class="mt-1">
+            <input id="password" name="password" placeholder="password must be 8 or more" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
 
@@ -39,7 +39,7 @@
               <label for="confirm password" class="block text-sm font-medium leading-6 text-gray-900">Confirm Password</label>
               
             </div>
-            <div class="mt-2">
+            <div class="mt-1">
               <input id="confirmpassword" name="confirmpassword" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
             </div>
           </div>

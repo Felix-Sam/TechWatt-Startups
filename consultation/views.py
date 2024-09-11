@@ -11,19 +11,20 @@ from .models import Payment
 
 @login_required(login_url = 'login')
 def consultation(request):
-
     return render(request, 'consultation/consult.html')
 
 
 
-
+@login_required(login_url = 'login')
 def paymentsucessful(request):
     return render(request, 'consultation/paymentsucess.html')
 
+@login_required(login_url = 'login')
 def paymentunsucessful(request):
     return render(request, 'consultation/paymentunsucess.html')
 
 
+@login_required(login_url = 'login')
 def initialize_payment(request):
     if request.method == 'POST':
         email = request.POST.get('email')
