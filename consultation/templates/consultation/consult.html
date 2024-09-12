@@ -128,24 +128,40 @@
                 <div class="bg-gray-100 shadow-lg rounded-lg p-8 text-center">
                     <h3 class="text-2xl font-semibold text-gray-800">Basic Consultation</h3>
                     <p class="text-gray-500 mt-4">1-hour session with an AI expert. Perfect for getting quick advice or feedback.</p>
+                    <form method="POST">
+                        {% csrf_token %}
                     <div class="text-3xl font-extrabold mt-6 text-indigo-500">$20</div>
-                    <a href="{% url 'initialize_payment' %}" class="inline-block bg-indigo-500 text-white font-bold mt-6 py-2 px-6 rounded-lg">Book Now</a>
+                    <input type="hidden" value="20" name="price">
+                    <input class="inline-block bg-indigo-500 text-white font-bold mt-6 py-2 px-6 rounded-lg" type="submit" value="Book Now">
+                    
+                </form>
                 </div>
                 
                 <!-- Package 2 -->
                 <div class="bg-gray-100 shadow-lg rounded-lg p-8 text-center">
                     <h3 class="text-2xl font-semibold text-gray-800">Advanced Consultation</h3>
                     <p class="text-gray-500 mt-4">3-hour deep dive into your AI project with detailed strategic advice.</p>
+                    <form method="POST">
+                        {% csrf_token %}
                     <div class="text-3xl font-extrabold mt-6 text-indigo-500">$150</div>
-                    <a href="{% url 'initialize_payment' %}" class="inline-block bg-indigo-500 text-white font-bold mt-6 py-2 px-6 rounded-lg">Book Now</a>
+                    <input type="hidden" value="150" name="price">
+                    <input class="inline-block bg-indigo-500 text-white font-bold mt-6 py-2 px-6 rounded-lg" type="submit" value="Book Now">
+                    
+                </form>
                 </div>
                 
                 <!-- Package 3 -->
                 <div class="bg-gray-100 shadow-lg rounded-lg p-8 text-center">
                     <h3 class="text-2xl font-semibold text-gray-800">Full Project Support</h3>
                     <p class="text-gray-500 mt-4">Ongoing support for your AI project with weekly sessions and development.</p>
+                    <form method="POST">
+                        {% csrf_token %}
                     <div class="text-3xl font-extrabold mt-6 text-indigo-500">$350</div>
-                    <a href="{% url 'initialize_payment' %}" class="inline-block bg-indigo-500 text-white font-bold mt-6 py-2 px-6 rounded-lg">Book Now</a>
+                    <input type="hidden" value="350" name="price">
+                    <input class="inline-block bg-indigo-500 text-white font-bold mt-6 py-2 px-6 rounded-lg" type="submit" value="Book Now">
+                    
+                </form>
+                
                 </div>
             </div>
         </div>
