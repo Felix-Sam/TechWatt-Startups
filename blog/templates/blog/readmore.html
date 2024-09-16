@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <title>Blog</title>
     {% tailwind_css %}
 </head>
-<body>
+<body class="font-sans bg-gray-100 text-gray-900">
     <div class="min-h-screen py-3 px-3 flex flex-col ">
         <!-- Navbar -->
 <!-- Navbar -->
@@ -74,41 +75,43 @@
     });
 </script>
 
-<!-- End of navbar -->
 
-<!-- Read more BLOGS -->
+        <!-- Blog Content -->
+        <div class="max-w-4xl mx-auto py-10 mt-24">
+            <!-- Blog Title -->
+            <h1 class="text-5xl font-bold text-gray-900 mb-6">{{ blog.title }}</h1>
 
-<div class="max-w-4xl mx-auto py-10 mt-20">
-    <!-- Blog Title -->
-    <h1 class="text-4xl font-bold text-gray-900 mb-6">{{ blog.title }}</h1>
+            <!-- Published Date and Author -->
+            <p class="text-gray-600 mb-6">
+                <span class="font-medium">Published on:</span> {{ blog.date_created|date:"F j, Y" }} 
+                <span class="font-medium">by</span> {{ blog.author }}
+            </p>
 
-    <!-- Published Date -->
-    <p class="text-gray-500 mb-8">Published on: {{ blog.date_created|date:"F j, Y" }}</p>
-
-    <!-- Blog Content -->
-    <div class="text-lg text-gray-800 leading-relaxed mb-10">
-        {{ blog.content }}
-    </div>
-
-    <!-- Blog Images -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {% for image in blog.images.all %}
-            <div class="relative group">
-                <img src="{{ image.image.url }}" alt="Blog Image" class="w-full h-72 object-cover rounded-lg shadow-md">
-                {% if image.caption %}
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex justify-center items-center rounded-lg">
-                        <p class="text-white text-sm font-semibold">{{ image.caption }}</p>
-                    </div>
-                {% endif %}
+            <!-- Blog Content -->
+            <div class="text-lg text-gray-800 leading-relaxed mb-10">
+                {{ blog.content }}
             </div>
-        {% endfor %}
-    </div>
 
-    <!-- Back to Blog List Button -->
-    <div class="mt-8">
-        <a href="{% url 'viewersblog' %}" class="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600">Back to Blog List</a>
-    </div>
-</div>
+            <!-- Blog Images -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {% for image in blog.images.all %}
+                    <div class="relative group overflow-hidden rounded-lg shadow-lg">
+                        <img src="{{ image.image.url }}" alt="Blog Image" class="w-full h-72 object-cover transition-opacity duration-300 group-hover:opacity-75">
+                        {% if image.caption %}
+                            <div class="absolute inset-0 bg-gray-800 bg-opacity-70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <p class="text-white text-sm font-semibold">{{ image.caption }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- Back to Blog List Button -->
+            <div class="mt-8">
+                <a href="{% url 'viewersblog' %}" class="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600">Back to Blog List</a>
+            </div>
+        </div>
+
 
 
 <!-- CONTACT US -->

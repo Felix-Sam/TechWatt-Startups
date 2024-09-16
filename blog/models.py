@@ -1,5 +1,6 @@
 from django.db import models
 from userauth.models import User
+from cloudinary.models import CloudinaryField
 
 class BlogPost(models.Model):
     title = models.CharField(max_length=400, null=False, blank=False)
@@ -13,7 +14,7 @@ class BlogPost(models.Model):
 
 class BlogImage(models.Model):
     blog_post = models.ForeignKey(BlogPost, related_name='images', on_delete=models.CASCADE)  # Link to the BlogPost
-    image = models.ImageField(upload_to='blog_images/', blank=True, null=True)
+    image = CloudinaryField('blog_images/', blank=True, null=True)
     caption = models.CharField(max_length=255, blank=True, null=True)  # Optional image caption
 
     def __str__(self):
