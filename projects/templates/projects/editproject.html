@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
+    <title>Edit blogs</title>
     {% tailwind_css %}
 </head>
 <body>
@@ -34,7 +34,7 @@
                     {% else %}
                     <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'login'%}">Sign In</a>
                     {% endif %}
-                   
+                    <a class="bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition duration-200" href="{% url 'login'%}">Get Started</a>
                 </div>
         
                 <!-- Mobile Menu Icon -->
@@ -58,7 +58,7 @@
                 {% else %}
                 <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'login'%}">Sign In</a>
                 {% endif %}
-        
+                <a class="mb-4 bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition duration-200" href="{% url 'login'%}">Get Started</a>
             </div>
         </nav>
         <!-- End of navbar -->
@@ -75,105 +75,60 @@
         
 <!-- End of navbar -->
 
-<!-- ADMIN BLOG DASHBOARD -->
- <!-- Dashboard Header -->
- <header class="bg-blue-500 text-white p-4 shadow-md">
-    <h1 class="text-3xl font-bold text-center">Admin Blog Dashboard</h1>
-</header>
-
-<!-- Main Content -->
-<main class="max-w-7xl mx-auto py-10">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-        <!-- Create New Blog Section -->
-        <div class="bg-white shadow-lg rounded-lg p-6">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Create a New Blog Post</h2>
-            <p class="text-gray-600 mb-4">Click below to start creating a new blog post for your viewers.</p>
-            <a href="{% url 'create_blogs' %}" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-                Create Blog
-            </a>
-        </div>
-
-        <!-- View Blogs for Users Section -->
-        <div class="bg-white shadow-lg rounded-lg p-6">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">View Blogs as Users</h2>
-            <p class="text-gray-600 mb-4">See how your blog posts appear to your viewers.</p>
-            <a href="{% url 'viewersblog' %}" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">
-                View Blogs
-            </a>
-        </div>
-
-        <!-- Add a project Section-->
-        <div class="bg-white shadow-lg rounded-lg p-6">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Delete Blog</h2>
-            <p class="text-gray-600 mb-4">Click here to start deleting or editing blog.</p>
-            <a href="{% url 'blogs' %}" class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-green-600">
-                Delete
-            </a>
-        </div>
-
-        <!-- Add a project Section-->
-        <div class="bg-white shadow-lg rounded-lg p-6">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Add Project</h2>
-            <p class="text-gray-600 mb-4">Click here to start adding project.</p>
-            <a href="{% url 'add-project' %}" class="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-green-600">
-                Add Project
-            </a>
-        </div>
-
-
-        <!-- Edit a project Section-->
-        <div class="bg-white shadow-lg rounded-lg p-6">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Edit Projects</h2>
-            <p class="text-gray-600 mb-4">Click here to start editing and deleting project.</p>
-            <a href="{% url 'modify-project' %}" class="bg-sky-500 text-white px-4 py-2 rounded-md hover:bg-green-600">
-                Edit Project
-            </a>
-        </div>
-
-    </div>
-
-    <!-- Blog List for Admin -->
-    <div class="mt-12 bg-white shadow-lg rounded-lg p-6">
-        <h2 class="text-2xl font-bold text-gray-800 mb-4">Manage Existing Blogs</h2>
-        <table class="min-w-full bg-white">
-            <thead>
-                <tr class="w-full bg-gray-200">
-                    <th class="py-2 px-4 text-left text-gray-600">Title</th>
-                    <th class="py-2 px-4 text-left text-gray-600">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for blog in blogs %}
-                <tr class="border-b">
-                    <td class="py-2 px-4 text-gray-800">{{ blog.title }}</td>
-                    <td class="py-2 px-4">
-                        <a href="{% url 'editblog' blog.id %}" class="text-blue-500 hover:underline">Edit</a> |
-                        <a href="{% url 'blog_detail' blog.id %}" class="text-green-500 hover:underline">View</a>
-                        <a href="{% url 'blog_detail' blog.id %}" class="text-green-500 hover:underline">View</a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+<!-- EDIT Project -->
+<!-- EDIT PROJECT -->
+<div class="max-w-4xl mx-auto py-10 mt-24">
+    <h1 class="text-3xl text-center font-bold mb-10 text-gray-800">Edit Project</h1>
     
-</main>
-
-
-
-
-<!-- CONTACT US -->
- <div class="bg-gray-800>
-    <section class="bg-gray-100 py-16 mb-0">
-      
-        <!-- Contact Us Section -->
-        <div class="bg-gray-800 py-16 text-center text-white">
-            <h2 class="text-4xl font-extrabold">Have Any Questions?</h2>
-            <p class="text-lg mt-4 max-w-2xl mx-auto">Get in touch with us for more information on our consultation services. We're here to help you bring your AI vision to life.</p>
-            <a href="mailto:felixsam922@gmail.com" class="inline-block bg-indigo-500 text-white font-bold mt-6 py-2 px-6 rounded-lg">Contact Us</a>
+    <form method="post" enctype="multipart/form-data" class="bg-white shadow-lg rounded-lg p-8 space-y-8">
+        {% csrf_token %}
+        <input type="hidden" name="project_id" value="{{ project.id }}">
+        
+        <!-- Title -->
+        <div class="mb-6">
+            <label for="title" class="block text-gray-800 text-lg font-semibold mb-2">Title</label>
+            <input type="text" id="title" name="title" value="{{ project.title }}" class="w-full border border-gray-300 rounded-md shadow-sm p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
         </div>
-    </section>
+        
+        <!-- Description -->
+        <div class="mb-6">
+            <label for="description" class="block text-gray-800 text-lg font-semibold mb-2">Description</label>
+            <textarea id="description" name="description" rows="6" class="w-full border border-gray-300 rounded-md shadow-sm p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>{{ project.description }}</textarea>
+        </div>
+
+        <!-- Price -->
+        <div class="mb-6">
+            <label for="price" class="block text-gray-800 text-lg font-semibold mb-2">Price</label>
+            <input type="text" id="price" name="price" value="{{ project.price }}" class="w-full border border-gray-300 rounded-md shadow-sm p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+        </div>
+
+        <!-- Project URL -->
+        <div class="mb-6">
+            <label for="project_url" class="block text-gray-800 text-lg font-semibold mb-2">Project URL</label>
+            <input type="url" id="project_url" name="project_url" value="{{ project.project_url }}" class="w-full border border-gray-300 rounded-md shadow-sm p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+        </div>
+        
+        <!-- Image -->
+        <div class="mb-6">
+            <label for="image" class="block text-gray-800 text-lg font-semibold mb-2">Image</label>
+            <input type="file" id="image" name="image" class="w-full border border-gray-300 rounded-md shadow-sm p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+            <p class="mt-2 text-gray-500 text-sm">Upload a new image for the project. The existing image will be replaced.</p>
+
+            <!-- Image preview container -->
+            <div class="mt-4">
+                <img src="{{ project.image.url }}" alt="Project Image" class="w-full h-64 object-cover rounded-lg shadow-md">
+            </div>
+        </div>
+        
+        <!-- Submit and Cancel Buttons -->
+        <div class="flex justify-end space-x-4">
+            <a href="{% url 'projects' %}" class="bg-gray-300 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-400 transition">Cancel</a>
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition">Save Changes</button>
+        </div>
+    </form>
+</div>
+
+
 
 
 
@@ -243,7 +198,6 @@
         <p>&copy; 2024 Tech Watt. All rights reserved.</p>
     </div>
 </footer>
-</div>
 
 </div>  
 </body>
