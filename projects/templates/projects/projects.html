@@ -85,42 +85,18 @@
         <h2 class="text-4xl font-extrabold text-center mb-10 text-gray-800">Project Store</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
 
-            <!-- Project Card 1 -->
+            {% for project in projects %}
             <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img src="{% static 'projects/images/trainer.jpg' %}" alt="Project Image" class="w-full h-48 object-cover">
+                <img src="{{project.image.url}}" alt="Project Image" class="w-full h-48 object-cover">
                 <div class="p-6">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Build a Personal AI Bicep Curl Trainer </h3>
-                    <p class="text-gray-500">Unlock the full potential of your fitness routine with this project on using AI YOLOV8 Pose Detection to build a fitness trainer.</p>
-                    <div class="text-3xl font-bold text-indigo-500 mt-4">$Free</div>
-                    <a href="https://youtu.be/Wfzy1YDKcEA?si=I8gG8Nw0th7CynSj"  class="block mt-6 bg-indigo-500 text-white text-center py-2 rounded-lg font-bold hover:bg-indigo-600 transition duration-300" target="_blank">Get Project</a>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">{{project.title}}</h3>
+                    <p class="text-gray-500">{{project.description}}</p>
+                    <div class="text-3xl font-bold text-indigo-500 mt-4">${{project.price}}</div>
+                    <a href="{{project.project_url}}"  class="block mt-6 bg-indigo-500 text-white text-center py-2 rounded-lg font-bold hover:bg-indigo-600 transition duration-300" target="_blank">Get Project</a>
                 </div>
             </div>
+            {% endfor %}
 
-            <!-- Project Card 2 -->
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img src="{% static 'projects/images/chatbot.jpg' %}" alt="Project Image" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Build a ChatBot Using Langchain and LLMs </h3>
-                    <p class="text-gray-500">
-                        Learn how create the state-of-the-art chatbot using Retrieval-Augmented Generation (RAG) with Langchain,LLAMA3, and GPT-3.5.
-                    </p>
-                    <div class="text-3xl font-bold text-indigo-500 mt-4">$Free</div>
-                    <a href="https://youtu.be/uxXxXaMpn4M" class="block mt-6 bg-indigo-500 text-white text-center py-2 rounded-lg font-bold hover:bg-indigo-600 transition duration-300" target="_blank">Get Project</a>
-                </div>
-            </div>
-
-            <!-- Project Card 3 -->
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                <img src="{% static 'projects/images/fire.webp' %}" alt="Project Image" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Train Your Custom Yolov8 Fire Detection Model </h3>
-                    <p class="text-gray-500">
-                        Explore the fascinating world of how to build your custom fire detection model using YOLOv8.
-                    </p>
-                    <div class="text-3xl font-bold text-indigo-500 mt-4">$Free</div>
-                    <a href="https://youtu.be/FBavXyN18K8" class="block mt-6 bg-indigo-500 text-white text-center py-2 rounded-lg font-bold hover:bg-indigo-600 transition duration-300 " target="_blank">Get Project</a>
-                </div>
-            </div>
 
 
         </div>
