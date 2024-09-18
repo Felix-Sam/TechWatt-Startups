@@ -5,11 +5,10 @@ from django.urls import reverse
 
 # Create your views here.
 def homepage(request):
-    try:
-        feedback = UserFeedback.objects.all().order_by('id')[6]  
-    except IndexError:
-        feedback = None 
+    
+    feedback = UserFeedback.objects.all()[:6] #taking first six feedbacks
 
+    
     return render(request, 'userauth/homepage.html', {'feedback': feedback})
 
 

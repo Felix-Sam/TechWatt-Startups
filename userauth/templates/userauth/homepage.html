@@ -605,60 +605,31 @@
 </div>
 
 <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-
-    <!-- Customer Feedback Card 1 -->
+    <!-- Customer Feedback Card 4-->
+    {% for feedbacks in feedback%}
     <div class="flex flex-col items-start bg-white shadow-lg rounded-lg p-6 transform transition-transform hover:scale-105 hover:shadow-2xl">
+       
         <div class="flex items-center space-x-4">
-            <img src="{% static 'userauth/images/felix.jpg'%}" class="w-20 h-20 rounded-full">
+            <img src="{{feedbacks.image.url}}" class="w-20 h-20 rounded-full">
             <div>
-                <h1 class="text-xl font-semibold text-gray-800">Emily R., Software Engineer</h1>
-                <a class="text-sm text-blue-500" href="">@techsam</a>
-            </div>
-        </div>
-        <h1 class="text-center text-pretty font-medium mt-2">Tech Watt is a game changer for AI development!</h1>
-
-        <p class="text-left text-gray-600 mt-4">
-            From courses to ready-to-use models, Tech Watt offers everything an AI developer needs. I was able to implement sophisticated AI solutions faster than ever, and their consultation services were a great help in fine-tuning my projects.
-            
-        </p>
-    </div>
-
-    <!-- Customer Feedback Card 2 -->
-    <div class="flex flex-col items-start bg-white shadow-lg rounded-lg p-6 transform transition-transform hover:scale-105 hover:shadow-2xl">
-        <div class="flex items-center space-x-4">
-            <img src="{% static 'userauth/images/felix.jpg'%}" class="w-20 h-20 rounded-full">
-            <div>
-                <h1 class="text-xl font-semibold text-gray-800">James K., AI Enthusiast</h1>
-                <a class="text-sm text-blue-500" href="">@techsam</a>
-            </div>
-        </div>
-        <h1 class="text-center text-pretty font-medium mt-2">The best platform for AI learning and projects!</h1>
-
-        <p class="text-left text-gray-600 mt-4">
-            Tech Watt's courses helped me understand AI concepts deeply, while their pre-trained models gave me a head start in applying AI to real-life situations. Their finished projects are a great resource, and the consultation services provided expert guidance every step of the way.
-            
-        </p>
-    </div>
-
-    <!-- Customer Feedback Card 3 -->
-    <div class="flex flex-col items-start bg-white shadow-lg rounded-lg p-6 transform transition-transform hover:scale-105 hover:shadow-2xl">
-        <div class="flex items-center space-x-4">
-            <img src="{% static 'userauth/images/felix.jpg'%}" class="w-20 h-20 rounded-full">
-            <div>
-                <h1 class="text-xl font-semibold text-gray-800"> Sarah L., Data Scientist</h1>
+                <h1 class="text-xl font-semibold text-gray-800">{{feedbacks.name}},{{feedbacks.occupation}}</h1>
                 
-                <a class="text-sm text-blue-500" href="">@techsam</a>
+                <a class="text-sm text-blue-500" href="{{feedbacks.social_url}}">@{{feedbacks.name}}</a>
             </div>
         </div>
 
-        <h1 class="text-center text-pretty font-medium mt-2">Tech Watt transformed our AI projects!</h1>
+        <h1 class="text-center text-pretty font-medium mt-2">{{feedbacks.heading}}</h1>
 
         <p class="text-left text-gray-600 mt-4">
-            We used Tech Watt's pre-trained AI models, and the results were incredible. The models are tailored to real-world problems, saving us time and effort. Their consultation services were also top-notch, guiding us through complex AI challenges with ease.
+            {{feedbacks.content}}
         </p>
+       
     </div>
+    {% endfor %}
     
 </section>
+
+
 <div class="flex items-center justify-center mt-6">
     <a class="mb-4 bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition duration-200" href="{% url 'userfeedback' %}"> Leave your feedback</a>
 </div>
