@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import User
-
+from cloudinary.models import CloudinaryField
 
 class User(AbstractUser):
     username = models.CharField(max_length=200,null=True,blank=True)
@@ -14,3 +14,14 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.email
+
+class UserFeedback(models.Model):
+    name = models.CharField(max_length=100,blank=False,null=True)
+    occupation = models.CharField(max_length=100, null=False, blank=False)
+    social_url = models.URLField(null=False, blank=False)
+    heading = models.CharField(max_length=200)
+    content = models.TextField(null=False, blank=False)
+    image = CloudinaryField('profile_image', blank=False, null=False)
+
+    def __str__(self):
+        return self.occupation

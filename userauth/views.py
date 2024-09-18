@@ -1,12 +1,16 @@
 from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth import authenticate,login ,logout
-from .models import User 
+from .models import User , UserFeedback
 from django.urls import reverse 
 
 # Create your views here.
 def homepage(request):
+    try:
+        feedback = UserFeedback.objects.all().order_by('id')[6]  
+    except IndexError:
+        feedback = None 
 
-    return render(request,'userauth/homepage.html')
+    return render(request, 'userauth/homepage.html', {'feedback': feedback})
 
 
 def UserLogin(request):
@@ -54,3 +58,27 @@ def UserSignup(request):
 
 def aboutus(request):
     return render(request,'userauth/about.html')
+
+
+# USER FEED BACK DATA
+def user_feedback_view(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        occupation = request.POST.get('occupation')
+        social_url = request.POST.get('social_url')
+        heading = request.POST.get('heading')
+        content = request.POST.get('content')
+        image = request.FILES.get('image')
+        
+        # Save feedback to database
+        UserFeedback.objects.create(
+            name = name,
+            occupation=occupation,
+            social_url=social_url,
+            heading=heading,
+            content=content,
+            image=image
+        )
+        
+        return redirect(reverse('homepage')) 
+    return render(request, 'userauth/userfeedback.html')
