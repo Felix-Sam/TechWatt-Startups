@@ -53,6 +53,7 @@
             <a href="{% url 'homepage'%}">
                 <img src="{% static 'userauth/images/LOGO.png'%}" alt="Logo" width="80">
             </a>
+            <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'about'%}">About Us</a>
         </div>
 
         <!-- Navigation Links (Desktop) -->
@@ -117,6 +118,7 @@
 
         
 <!-- End of navbar -->
+
 
 <style>
     @keyframes fadeIn {
@@ -339,9 +341,11 @@
         <!-- End of Courosel -->
 
         <!-- Training  -->
-        <section class="bg-gray-500 py-10">
+        <section class="bg-gray-500 py-10 mb-20">
             <div class="flex flex-col items-center text-center mb-10">
-                <h1 class="text-black font-extrabold text-3xl mb-2">We provide training in the following</h1>
+                <h2 class="text-5xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600">
+                    Learn from us
+                </h2>
                 <h2 class="text-white text-lg">Master this skills in short period of time</h2>
             </div>
             
@@ -425,10 +429,71 @@
         <!-- end of training -->
         
 
+<!-- Futuristic Project Section -->
+<section class="bg-gray-500 py-16 mt-10 mb-20">
+    <div class="max-w-7xl mx-auto px-5">
+        <h2 class="text-5xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600">
+            Project Store
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+            <!-- Project 1 -->
+            <div class="bg-white shadow-xl rounded-xl overflow-hidden transform hover:scale-105 transition-transform duration-500">
+                <img src="{% static 'userauth/images/trainer.jpg' %}" alt="Project Image" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-black mb-4">Computer Vision </h3>
+                    <p class="text-gray-400">Unlock the full potential of your fitness routine with this project on using AI YOLOV8 Pose Detection to build a fitness trainer..</p>
+                    <div class="text-3xl font-bold text-pink-500 mt-4">$Free</div>
+                    <a href="https://youtu.be/Wfzy1YDKcEA?si=-6-0JRnCvfLeKFJd" class="block mt-6 bg-pink-600 text-white text-center py-2 rounded-lg font-bold hover:bg-pink-700 transition duration-300" target="_blank">
+                        Get Project
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="bg-white shadow-xl rounded-xl overflow-hidden transform hover:scale-105 transition-transform duration-500">
+                <img src="{% static 'userauth/images/fire.webp' %}" alt="Project Image" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-black mb-4">Computer Vision </h3>
+                    <p class="text-gray-400">Explore the fascinating world of how to build your custom fire detection model using YOLOv8.</p>
+                    <div class="text-3xl font-bold text-pink-500 mt-4">$Free</div>
+                    <a href="https://youtu.be/FBavXyN18K8?si=3PkrvwygAeD9mTdC" class="block mt-6 bg-pink-600 text-white text-center py-2 rounded-lg font-bold hover:bg-pink-700 transition duration-300" target="_blank">
+                        Get Project
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="bg-white shadow-xl rounded-xl overflow-hidden transform hover:scale-105 transition-transform duration-500">
+                <img src="{% static 'userauth/images/chatbot.jpg' %}" alt="Project Image" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold text-black mb-4">Generative AI</h3>
+                    <p class="text-gray-400">Learn how to create a state-of-the-art chatbot using Retrieval-Augmented Generation (RAG) with Langchain, LLAMA3, and GPT-3.5.</p>
+                    <div class="text-3xl font-bold text-pink-500 mt-4">$Free</div>
+                    <a href="https://youtu.be/uxXxXaMpn4M?si=ciIJQVSSxQUYgU5F" class="block mt-6 bg-pink-600 text-white text-center py-2 rounded-lg font-bold hover:bg-pink-700 transition duration-300" target="_blank">
+                        Get Project
+                    </a>
+                </div>
+            </div>
+
+
+            
+        </div>
+        <div class="flex items-center justify-center mt-6">
+            <a class="mb-4 bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition duration-200" href="{%url 'projects'%}"> More Projects</a>
+        </div>
+    </div>
+</section>
+
+
+
+
         <!-- Courses -->
-        <section class="bg-gray-500 py-10">
+        <section class="bg-gray-500 py-10 mb-20">
             <div class="flex flex-col items-center text-center mb-10">
-                <h1 class="text-black font-extrabold text-3xl mb-2">Courses</h1>
+                <h2 class="text-5xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600">
+                    Courses
+                </h2>
                 <h2 class="text-white text-lg">Master AI and Machine Learning with Expert-Led Courses</h2>
             </div>
             
@@ -473,14 +538,19 @@
                 <a class="mb-4 bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition duration-200" href=" "> More</a>
             </div>
         </section>
-        <hr>
+        
         
 <!-- Blogs -->
 <section class="bg-gray-500 py-10">
     <div class="flex flex-col items-center text-center mb-10">
-        <h1 class="text-black font-extrabold text-3xl mb-2">Our Blogs</h1>
-        <h2 class="text-white text-lg">Read our blogs and get enlighten</h2>
+        <h2 class="text-5xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 animate-pulse">
+            Blogs
+        </h2>
+        <p class="text-gray-300 text-lg md:text-xl tracking-wide leading-relaxed">
+            Explore our insightful blogs and immerse yourself in knowledge and innovation.
+        </p>
     </div>
+    
     
     <div class="flex flex-col md:flex-row justify-between items-center gap-5 px-5">
         <!-- blog Card 1 -->
@@ -526,7 +596,9 @@
 
 <!-- Testimonies 1-->
 <div class="flex items-center justify-center mb-8 mt-16">
-    <h1 class="text-3xl font-bold text-gray-700">Customer Feedback</h1>
+    <h2 class="text-5xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600">
+        Feedback
+    </h2>
 </div>
 
 <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -596,7 +668,7 @@
                 Join a Vibrant Community of Developers, Data Scientists, Computer Vision Engineers, and AI Enthusiast.
               </p>
               <div class="flex justify-center items-center mt-5">
-                <a href="https://chat.whatsapp.com/IDowTwbS5OqI6OtU9K6Ufx"><button class="text-white bg-blue-500 py-2 px-4 rounded text-base hover:bg-blue-700">
+                <a href="https://chat.whatsapp.com/IDowTwbS5OqI6OtU9K6Ufx" target="_blank"><button class="text-white bg-blue-500 py-2 px-4 rounded text-base hover:bg-blue-700">
                     Join Now
                   </button></a>
               </div>
@@ -607,21 +679,21 @@
     
                 <div class="flex space-x-4 border-2 border-blue-500 rounded p-5">
                     <!-- Facebook Icon -->
-                    <a href="" class="text-blue-600 hover:text-blue-800">
+                    <a href="https://www.facebook.com/share/PQAvF55erNL4bwZF/?mibextid=LQQJ4d" class="text-blue-600 hover:text-blue-800" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M22.675 0h-21.35C.597 0 0 .598 0 1.333v21.333C0 23.402.597 24 1.325 24H12.82V14.708h-3.457v-3.626h3.457V8.174c0-3.431 2.096-5.296 5.154-5.296 1.464 0 2.722.109 3.089.157v3.583l-2.12.001c-1.662 0-1.982.79-1.982 1.948v2.554h3.963l-.518 3.626h-3.445V24h6.763C23.402 24 24 23.402 24 22.667V1.333C24 .598 23.402 0 22.675 0z"/>
                         </svg>
                     </a>
                 
                     <!-- Twitter Icon -->
-                    <a href="" class="text-blue-400 hover:text-blue-600">
+                    <a href="https://x.com/tech_watt1?s=21" class="text-blue-400 hover:text-blue-600" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M23.954 4.569c-.885.392-1.83.656-2.825.775 1.014-.611 1.794-1.574 2.163-2.724-.951.564-2.005.974-3.127 1.195-.897-.959-2.173-1.558-3.591-1.558-2.719 0-4.923 2.206-4.923 4.925 0 .39.045.765.127 1.125-4.09-.205-7.719-2.165-10.148-5.144-.423.725-.666 1.562-.666 2.457 0 1.695.865 3.191 2.18 4.065-.802-.025-1.555-.246-2.214-.615v.062c0 2.366 1.684 4.342 3.918 4.787-.411.111-.845.17-1.293.17-.316 0-.624-.031-.924-.089.625 1.951 2.444 3.374 4.599 3.414-1.684 1.319-3.809 2.107-6.116 2.107-.398 0-.79-.023-1.175-.069 2.18 1.397 4.768 2.212 7.557 2.212 9.054 0 14.004-7.496 14.004-13.985 0-.213-.005-.425-.015-.637.961-.695 1.8-1.562 2.459-2.549z"/>
                         </svg>
                     </a>
                 
                     <!-- Instagram Icon -->
-                    <a href="" class="text-pink-500 hover:text-pink-700">
+                    <a href="https://www.instagram.com/tech_watt?igsh=bm93ZWV1NmpxNmZz&utm_source=qr" class="text-pink-500 hover:text-pink-700" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2.163c3.204 0 3.584.012 4.849.07 1.366.062 2.633.336 3.608 1.311.975.975 1.25 2.242 1.311 3.608.059 1.265.07 1.645.07 4.849s-.012 3.584-.07 4.849c-.062 1.366-.336 2.633-1.311 3.608-.975.975-2.242 1.25-3.608 1.311-1.265.059-1.645.07-4.849.07s-3.584-.012-4.849-.07c-1.366-.062-2.633-.336-3.608-1.311-.975-.975-1.25-2.242-1.311-3.608-.059-1.265-.07-1.645-.07-4.849s.012-3.584.07-4.849c.062-1.366.336-2.633 1.311-3.608.975-.975 2.242-1.25 3.608-1.311 1.265-.059 1.645-.07 4.849-.07zm0-2.163c-3.257 0-3.667.012-4.947.07-1.416.062-2.674.36-3.688 1.374-1.014 1.014-1.312 2.272-1.374 3.688-.059 1.28-.07 1.69-.07 4.947s.012 3.667.07 4.947c.062 1.416.36 2.674 1.374 3.688 1.014 1.014 2.272 1.312 3.688 1.374 1.28.059 1.69.07 4.947.07s3.667-.012 4.947-.07c1.416-.062 2.674-.36 3.688-1.374 1.014-1.014 1.312-2.272 1.374-3.688.059-1.28.07-1.69.07-4.947s-.012-3.667-.07-4.947c-.062-1.416-.36-2.674-1.374-3.688-1.014-1.014-2.272-1.312-3.688-1.374-1.28-.059-1.69-.07-4.947-.07z"/>
                             <path d="M12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.325c-2.297 0-4.162-1.865-4.162-4.162s1.865-4.162 4.162-4.162 4.162 1.865 4.162 4.162-1.865 4.162-4.162 4.162zm6.406-11.845c-.796 0-1.443.647-1.443 1.443s.647 1.443 1.443 1.443 1.443-.647 1.443-1.443-.647-1.443-1.443-1.443z"/>
@@ -629,14 +701,14 @@
                     </a>
                 
                     <!-- LinkedIn Icon -->
-                    <a href="https://www.linkedin.com/company/techwatt-ai/" class="text-blue-700 hover:text-blue-900">
+                    <a href="https://www.linkedin.com/company/techwatt-ai/" class="text-blue-700 hover:text-blue-900" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.851-3.037-1.853 0-2.137 1.448-2.137 2.945v5.661H9.348V9h3.396v1.561h.046c.473-.899 1.632-1.847 3.361-1.847 3.596 0 4.26 2.364 4.26 5.445v6.293zM5.337 7.433c-1.09 0-1.975-.883-1.975-1.974 0-1.09.884-1.975 1.975-1.975 1.091 0 1.975.884 1.975 1.975 0 1.091-.884 1.974-1.975 1.974zm1.743 13.019H3.593V9h3.487v11.452zM22.225 0H1.771C.792 0 0 .783 0 1.744v20.511C0 23.217.792 24 1.771 24h20.451C23.207 24 24 23.217 24 22.256V1.744C24 .783 23.207 0 22.225 0z"/>
                         </svg>
                     </a>
 
                     <!-- Youtube -->
-                    <a href="https://youtube.com/@tech_watt?si=tA8wWikpfXbXk8LZ" class="text-red-700 hover:text-red-900">
+                    <a href="https://youtube.com/@tech_watt?si=tA8wWikpfXbXk8LZ" class="text-red-700 hover:text-red-900" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M23.499 6.203c-.276-1.037-1.086-1.852-2.123-2.122C19.612 3.428 12 3.428 12 3.428s-7.612 0-9.376.653c-1.037.27-1.847 1.085-2.123 2.122C0 7.965 0 12 0 12s0 4.035.501 5.797c.276 1.037 1.086 1.852 2.123 2.122C4.388 20.572 12 20.572 12 20.572s7.612 0 9.376-.653c1.037-.27 1.847-1.085 2.123-2.122C24 16.035 24 12 24 12s0-4.035-.501-5.797zM9.601 15.407v-6.814l6.407 3.407-6.407 3.407z"/>
                         </svg>

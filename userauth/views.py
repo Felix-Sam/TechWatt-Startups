@@ -51,3 +51,6 @@ def UserSignup(request):
         return redirect(reverse('homepage'))
 
     return render(request,'userauth/signup.html')
+
+def aboutus(request):
+    return render(request,'userauth/about.html')
