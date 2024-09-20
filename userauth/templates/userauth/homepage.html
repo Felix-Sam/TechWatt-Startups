@@ -161,7 +161,9 @@
 <!-- Services -->
 <section class="bg-gray-100 py-16">
     <div class="text-center mb-12">
-        <h1 class="text-4xl font-extrabold text-gray-800">Our Services</h1>
+        <h2 class="text-5xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 animate-pulse">
+            Our Services
+        </h2>
         <p class="text-lg text-gray-500 mt-4">Explore AI models, take courses, work on projects, or consult with experts.</p>
     </div>
 
@@ -541,7 +543,50 @@
                 <a class="mb-4 bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition duration-200" href=" "> More Courses</a>
             </div>
         </section>
-        
+ 
+
+
+ <!-- Testimonies 1-->
+<div class="flex items-center justify-center mb-8 mt-16">
+    <h2 class="text-5xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600">
+        Feedbacks
+    </h2>
+</div>
+
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+    <!-- Customer Feedback Card 4-->
+    {% for feedbacks in feedback%}
+    <div class="flex flex-col items-start bg-white shadow-lg rounded-lg p-6 transform transition-transform hover:scale-105 hover:shadow-2xl">
+       
+        <div class="flex items-center space-x-4">
+            <img src="{{feedbacks.image.url}}" class="w-20 h-20 rounded-full">
+            <div>
+                <h1 class="text-xl font-semibold text-gray-800">{{feedbacks.name}},{{feedbacks.occupation}}</h1>
+                
+                <a class="text-sm text-blue-500" href="{{feedbacks.social_url}}">@{{feedbacks.name}}</a>
+            </div>
+        </div>
+
+        <h1 class="text-center text-pretty font-medium mt-2">{{feedbacks.heading}}</h1>
+
+        <p class="text-left text-gray-600 mt-4">
+            {{feedbacks.content}}
+        </p>
+       
+    </div>
+    {% endfor %}
+    
+</section>
+
+
+<div class="flex items-center justify-center mt-6 mb-10">
+    <a class="mb-4 bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition duration-200" href="{% url 'userfeedback' %}"> Leave your feedback</a>
+</div>
+
+
+<!-- End of testimonies -->
+       
+
         
 <!-- Blogs -->
 <section class="bg-gray-500 py-10">
@@ -597,43 +642,6 @@
     </div>
 </section>
 
-<!-- Testimonies 1-->
-<div class="flex items-center justify-center mb-8 mt-16">
-    <h2 class="text-5xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600">
-        Feedback
-    </h2>
-</div>
-
-<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-    <!-- Customer Feedback Card 4-->
-    {% for feedbacks in feedback%}
-    <div class="flex flex-col items-start bg-white shadow-lg rounded-lg p-6 transform transition-transform hover:scale-105 hover:shadow-2xl">
-       
-        <div class="flex items-center space-x-4">
-            <img src="{{feedbacks.image.url}}" class="w-20 h-20 rounded-full">
-            <div>
-                <h1 class="text-xl font-semibold text-gray-800">{{feedbacks.name}},{{feedbacks.occupation}}</h1>
-                
-                <a class="text-sm text-blue-500" href="{{feedbacks.social_url}}">@{{feedbacks.name}}</a>
-            </div>
-        </div>
-
-        <h1 class="text-center text-pretty font-medium mt-2">{{feedbacks.heading}}</h1>
-
-        <p class="text-left text-gray-600 mt-4">
-            {{feedbacks.content}}
-        </p>
-       
-    </div>
-    {% endfor %}
-    
-</section>
-
-
-<div class="flex items-center justify-center mt-6">
-    <a class="mb-4 bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition duration-200" href="{% url 'userfeedback' %}"> Leave your feedback</a>
-</div>
-<!-- End of testimonies -->
 
 
 
@@ -649,6 +657,10 @@
                   </button></a>
               </div>
             </div>
+
+            <h2 class="mt-10 text-5xl font-extrabold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-600 to-pink-600 animate-pulse">
+                Follow Our Social
+            </h2>
 
             <div class="flex flex-row justify-center mb-8 items-center w-full">
                 
