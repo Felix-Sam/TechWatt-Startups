@@ -75,12 +75,12 @@
         
 <!-- End of navbar -->
 
-
+<!-- add project -->
 <div class="max-w-4xl mx-auto mt-32 mb-5 p-6 bg-white shadow-lg rounded-lg">
     <h1 class="text-2xl text-center font-semibold mb-6">Add a New Project</h1>
 
-    <form  method="POST" enctype="multipart/form-data">
-        {% csrf_token%}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
         <!-- Title Field -->
         <div class="mb-4">
             <label for="title" class="block text-gray-700 font-semibold mb-2">Title</label>
@@ -89,27 +89,34 @@
 
         <!-- Project description Field -->
         <div class="mb-4">
-            <label for="content" class="block text-gray-700 font-semibold mb-2">description</label>
+            <label for="description" class="block text-gray-700 font-semibold mb-2">Description</label>
             <textarea id="description" name="description" rows="6" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Write your project description here..." required></textarea>
         </div>
 
         <!-- Price Field -->
         <div class="mb-4">
-            <label for="author" class="block text-gray-700 font-semibold mb-2">Price</label>
+            <label for="price" class="block text-gray-700 font-semibold mb-2">Price</label>
             <input type="text" id="price" name="price" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter project price" required>
         </div>
-        
+
         <!-- Project Url Field -->
         <div class="mb-4">
-            <label for="author" class="block text-gray-700 font-semibold mb-2">Project Url</label>
-            <input type="text" id="project_url" name="project_url" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter project url" required>
+            <label for="project_url" class="block text-gray-700 font-semibold mb-2">Project URL</label>
+            <input type="text" id="project_url" name="project_url" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter project URL" required>
         </div>
 
         <!-- Image Upload Field -->
         <div class="mb-6">
-            <label for="images" class="block text-gray-700 font-semibold mb-2">Upload Images</label>
+            <label for="image" class="block text-gray-700 font-semibold mb-2">Upload Image</label>
             <input type="file" id="image" name="image" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <small class="text-gray-500">You can't  upload multiple images.</small>
+            <small class="text-gray-500">You can't upload multiple images.</small>
+        </div>
+
+        <!-- Zip File Upload Field -->
+        <div class="mb-6">
+            <label for="project_zip" class="block text-gray-700 font-semibold mb-2">Upload Project ZIP</label>
+            <input type="file" id="project_zip" name="project_zip" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <small class="text-gray-500">Upload a zip file containing your project files, including code, instructions, and images.</small>
         </div>
 
         <!-- Submit Button -->
@@ -120,7 +127,6 @@
         </div>
     </form>
 </div>
-
 
     
     <!-- Footer -->
