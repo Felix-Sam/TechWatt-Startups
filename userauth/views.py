@@ -8,7 +8,6 @@ def homepage(request):
     
     feedback = UserFeedback.objects.all()[:6] #taking first six feedbacks
 
-    
     return render(request, 'userauth/homepage.html', {'feedback': feedback})
 
 
@@ -81,3 +80,13 @@ def user_feedback_view(request):
         
         return redirect(reverse('homepage')) 
     return render(request, 'userauth/userfeedback.html')
+
+
+def privacy(request):
+    return render(request, 'userauth/privacy.html')
+
+def termsofservice(request):
+    return render(request, 'userauth/termsofservice.html')
+
+def education(request):
+    return render(request, 'userauth/education.html')
