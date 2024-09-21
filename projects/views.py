@@ -53,6 +53,7 @@ def projects(request):
         data = {
             "amount": amount*100,
             'email': request.user.email,
+            # "currency": "USD",
             "callback_url": callback_url
         }
 
