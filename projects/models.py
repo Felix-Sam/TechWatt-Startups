@@ -8,7 +8,7 @@ class Project(models.Model):
     price = models.CharField(max_length=12, null=False, blank=False)
     image = CloudinaryField('project_image/', blank=False, null=False)
     project_url = models.URLField(null=True, blank=True)
-    project_zip = models.FileField(upload_to='project_zips/', blank=True, null=True) 
+    project_zip = CloudinaryField('project_zips/', blank=True, null=True) 
 
     def __str__(self):
         return self.title
