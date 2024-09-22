@@ -149,7 +149,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
 
 # CSRF_COOKIE_SECURE: Ensure it is set to True to prevent CSRF attacks.
 # SESSION_COOKIE_SECURE: Ensure it is also set to True.
