@@ -155,19 +155,23 @@ if not DEBUG:
         'PORT': os.getenv('PORT'),
     }
     }
-
-
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-
-# Database
+else:
+    # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+
+    PAYSTACK_SECRET_KEY = os.getenv('testsecret')
+    PAYSTACK_PUBLIC_KEY = os.getenv('testkey')
+
+    STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+
+
 
 
 
