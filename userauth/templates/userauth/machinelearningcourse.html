@@ -1,0 +1,239 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Course Outline</title>
+    {% tailwind_css %}
+</head>
+<body>
+    <div class="min-h-screen py-3 px-3 flex flex-col ">
+ <!-- Navbar -->
+ <nav class="fixed top-0 left-0 w-full bg-white shadow-lg z-50">
+    <div class="flex items-center justify-around p-1">
+        <!-- Logo Section -->
+        <div class="flex items-center gap-5">
+            <a href="">
+                <img src="{% static 'consultation/images/LOGO.png'%}" alt="Logo" width="80">
+            </a>
+        </div>
+
+        <!-- Navigation Links (Desktop) -->
+        <div class="hidden md:flex flex-col items-center gap-5 md:flex-row md:justify-center">
+            <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'homepage'%}">Home</a>
+            <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="#">Models</a>
+            <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="#">Courses</a>
+            <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'viewersblog' %}">Blog</a>
+            <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'projects' %}">Projects</a>
+        </div>
+
+        <!-- Action Buttons (Desktop) -->
+        <div class="hidden md:flex items-center gap-5">
+            {% if user.is_authenticated %}
+            <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'logout'%}">Logout</a>
+            {% else %}
+            <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'login'%}">Sign In</a>
+            {% endif %}
+        
+        </div>
+
+        <!-- Mobile Menu Icon -->
+        <div class="md:hidden flex items-center">
+            <button id="menu-btn" class="text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Links -->
+    <div id="mobile-menu" class="hidden md:hidden flex flex-col items-center gap-4 mt-4 bg-white shadow-lg p-4">
+        <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'homepage'%}">Home</a>
+        <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="#">Models</a>
+        <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="#">Courses</a>
+        <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'viewersblog' %}">Blog</a>
+        <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'projects' %}">Projects</a>
+        {% if user.is_authenticated %}
+        <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'logout'%}">Logout</a>
+        {% else %}
+        <a class="text-base font-medium text-gray-700 hover:text-blue-500 transition duration-200" href="{% url 'login'%}">Sign In</a>
+        {% endif %}
+    
+    </div>
+</nav>
+<!-- End of navbar -->
+
+<!-- Script to Toggle Mobile Menu -->
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
+<!-- End of navbar -->
+
+<!-- COURSE OUTLINE -->
+<section class="bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 text-white py-20 px-6 md:px-20">
+    <div class="max-w-7xl mx-auto text-center mb-10">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-6">
+            Machine Learning
+        </h1>
+        <p class="text-lg md:text-2xl mb-6">
+            Unlock the power of Machine Learning with hands-on training. Learn to build and deploy intelligent systems to solve real-world problems.
+        </p>
+        <a href="https://chat.whatsapp.com/EYFDQ6s88zI5SiVn1j2bBQ" class="bg-blue-600 text-white py-2 px-6 rounded-lg shadow-lg hover:bg-blue-700">
+            Join Machine Learning Cohort
+        </a>
+    </div>
+</section>
+
+<!-- Course Outline Section -->
+<section class="bg-gray-900 text-gray-300 py-16 px-6 md:px-20">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">
+            Course Outline
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Module 1 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold text-white mb-4">Module 1: Introduction to Machine Learning</h3>
+                <ul class="list-disc pl-6 text-sm text-gray-300">
+                    <li>Overview of Machine Learning</li>
+                    <li>Types of Machine Learning: Supervised, Unsupervised, and Reinforcement Learning</li>
+                    <li>ML Process: Data Collection, Preprocessing, Model Building</li>
+                    <li>Python for ML: Libraries and Tools</li>
+                </ul>
+            </div>
+
+            <!-- Module 2 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold text-white mb-4">Module 2: Data Preprocessing and Feature Engineering</h3>
+                <ul class="list-disc pl-6 text-sm text-gray-300">
+                    <li>Cleaning and Preparing Data</li>
+                    <li>Handling Missing Data and Outliers</li>
+                    <li>Feature Selection and Dimensionality Reduction</li>
+                    <li>Data Normalization and Standardization</li>
+                </ul>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold text-white mb-4">Module 3: Supervised Learning</h3>
+                <ul class="list-disc pl-6 text-sm text-gray-300">
+                    <li>Linear and Logistic Regression</li>
+                    <li>Decision Trees and Random Forests</li>
+                    <li>Support Vector Machines (SVM)</li>
+                    <li>Evaluation Metrics: Accuracy, Precision, Recall</li>
+                </ul>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold text-white mb-4">Module 4: Unsupervised Learning</h3>
+                <ul class="list-disc pl-6 text-sm text-gray-300">
+                    <li>Clustering Algorithms (K-Means, Hierarchical Clustering)</li>
+                    <li>Principal Component Analysis (PCA)</li>
+                    <li>Anomaly Detection</li>
+                    <li>Dimensionality Reduction Techniques</li>
+                </ul>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold text-white mb-4">Module 5: Neural Networks and Deep Learning</h3>
+                <ul class="list-disc pl-6 text-sm text-gray-300">
+                    <li>Understanding Neural Networks</li>
+                    <li>Training Neural Networks</li>
+                    <li>Convolutional Neural Networks (CNN)</li>
+                    <li>Recurrent Neural Networks (RNN)</li>
+                </ul>
+            </div>
+
+            <!-- Module 6 -->
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <h3 class="text-xl font-semibold text-white mb-4">Module 6: Real-World Machine Learning Projects</h3>
+                <ul class="list-disc pl-6 text-sm text-gray-300">
+                    <li>Building a Machine Learning Pipeline</li>
+                    <li>Model Deployment and Monitoring</li>
+                    <li>End-to-End Project: Predictive Analytics</li>
+                    <li>Presenting Results</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<!-- CONTACT US -->
+<div class="bg-gray-800>
+    <section class="bg-gray-100 py-16 mb-0">
+      
+        <!-- Contact Us Section -->
+        <div class="bg-gray-800 py-16 text-center text-white">
+            <h2 class="text-4xl font-extrabold">Have Any Questions?</h2>
+            <p class="text-lg mt-4 max-w-2xl mx-auto">Get in touch with us for more information on our consultation services. We're here to help you bring your AI vision to life.</p>
+            <a href="mailto:felixsam922@gmail.com" class="inline-block bg-indigo-500 text-white font-bold mt-6 py-2 px-6 rounded-lg">Contact Us</a>
+        </div>
+    </section>
+
+
+<!-- Centered Footer -->
+<footer class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-16">
+    <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-8 text-center">
+        <!-- Company Section -->
+        <div class="flex flex-col items-center">
+            <h2 class="text-2xl font-semibold mb-4 text-indigo-400">Company</h2>
+            <ul class="space-y-3">
+                <li><a href="{% url 'about'%}" class="hover:text-indigo-300 transition-colors duration-200">About Us</a></li>
+                <li><a href="{% url 'privacy' %}" class="hover:text-indigo-300 transition-colors duration-200">Privacy Policy</a></li>
+                <li><a href="{% url 'termsofservice' %}" class="hover:text-indigo-300 transition-colors duration-200">Terms of Service</a></li>
+            </ul>
+        </div>
+
+        <!-- Industries Section -->
+        <div class="flex flex-col items-center">
+            <h2 class="text-2xl font-semibold mb-4 text-indigo-400">Industries</h2>
+            <ul class="space-y-3">
+                <li><a href="{% url 'education'%}" class="hover:text-indigo-300 transition-colors duration-200">Education</a></li>
+            </ul>
+        </div>
+
+        <!-- Products Section -->
+        <div class="flex flex-col items-center">
+            <h2 class="text-2xl font-semibold mb-4 text-indigo-400">Products</h2>
+            <ul class="space-y-3">
+                <li><a href="{% url 'education'%}" class="hover:text-indigo-300 transition-colors duration-200" target="_blank">Training</a></li>
+                <li><a href="{% url 'projects'%}" class="hover:text-indigo-300 transition-colors duration-200">Projects</a></li>
+                <li><a href="" class="hover:text-indigo-300 transition-colors duration-200">AI Models...coming soon...</a></li>
+                <li><a href="" class="hover:text-indigo-300 transition-colors duration-200">Courses...coming soon...</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Border and Copyright -->
+    <div class="border-t border-gray-700 mt-12"></div>
+
+    <div class="mt-8 text-center">
+        <p class="text-gray-400">&copy; 2024 <span class="text-indigo-400 font-semibold">Tech Watt</span>. All rights reserved.</p>
+    </div>
+</footer>
+
+</div>
+
+
+</div>  
+</body>
+</html>

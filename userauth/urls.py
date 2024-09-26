@@ -11,6 +11,10 @@ urlpatterns = [
     path('privacy/', views.privacy, name='privacy'),
     path('termsofservice/', views.termsofservice, name='termsofservice'),
     path('education/', views.education, name='education'),
-
-
+    path('pythoncourse/', views.python_CourseOuline, name='pythoncourse'),
+    path('machinelearningcourse/', views. machinelearning_CourseOuline, name='machinelearningcourse'),
+    path('chatbotcourse/', views.chatbot_CourseOutline, name='chatbotcourse'),
+    path('roboticscourse/', views.robotics_CourseOutline, name='roboticscourse'),
+    path('computervision/', views.computervision_CourseOutline ,name='computervisioncourse'),
+    path('generativeai/', views.generativeai_CourseOutline, name='generativeaicourse'),
 ]

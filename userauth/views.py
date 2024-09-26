@@ -90,3 +90,23 @@ def termsofservice(request):
 
 def education(request):
     return render(request, 'userauth/education.html')
+
+
+def python_CourseOuline(request):
+    return render(request, 'userauth/pythoncourse.html')
+
+def machinelearning_CourseOuline(request):
+    return render(request, 'userauth/machinelearningcourse.html')
+
+def chatbot_CourseOutline(request):
+    return render(request, 'userauth/chatbotcourse.html')
+
+def robotics_CourseOutline(request):
+    return render(request, 'userauth/roboticscourse.html')
+
+def computervision_CourseOutline(request):
+    return render(request, 'userauth/computervisioncourse.html')
+
+def generativeai_CourseOutline(request):
+    return render(request, 'userauth/generativeaicourse.html')
+
