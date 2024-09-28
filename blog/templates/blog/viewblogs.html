@@ -90,7 +90,7 @@
 
 
                 <!-- Published Date -->
-                <p class="text-sm text-gray-500 mt-4"><strong>Published on:</strong> {{ blog.date_created|date:"F j, Y" }}</p>
+                <p class="text-sm text-gray-500 mt-4"><strong>Published on:</strong> {{ blog.date_created|timesince }}</p>
             </div>
 
             <!-- Blog Images -->
