@@ -21,29 +21,30 @@
     </style>
 </head>
 <body class="bg-gray-900 text-white font-sans">
+    {% include 'userauth/navbar.html' %}
 
     <!-- Main container for the chat interface -->
-    <div class="min-h-screen flex flex-col justify-center items-center py-10 px-4 sm:px-6 lg:px-8">
+    <div class="mt-14 min-h-screen flex flex-col justify-center items-center py-10">
 
         <!-- Chat container -->
         <div class="flex flex-col w-full max-w-4xl h-screen bg-gray-800 rounded-lg shadow-lg overflow-hidden">
 
             <!-- Header -->
             <div class="bg-gradient-to-r from-purple-600 to-blue-600 p-4 rounded-t-lg shadow-lg">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-center">Tech Watt Chatroom</h2>
+                <h2 class="text-4xl font-bold text-center">Tech Watt Chatroom</h2>
             </div>
 
             <!-- Chat messages section -->
-            <div class="flex-grow overflow-y-auto p-4 sm:p-6 space-y-4" id="chat-window">
+            <div class="flex-grow overflow-y-auto p-6 space-y-4" id="chat-window">
                 <!-- Loop through messages -->
                 {% for message in messages %}
                 <div class="flex {% if message.user_data.user == request.user %}justify-end{% else %}justify-start{% endif %}">
-                    <div class="max-w-xs sm:max-w-sm bg-gray-700 p-3 sm:p-4 rounded-lg shadow-md space-y-2 transition-transform transform hover:scale-105">
-                        <div class="flex items-center space-x-2 sm:space-x-3">
-                            <img src="{{ message.user_data.image.url }}" alt="User profile" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-purple-500">
+                    <div class="max-w-sm bg-gray-700 p-4 rounded-lg shadow-md space-y-2 transition-transform transform hover:scale-105">
+                        <div class="flex items-center space-x-3">
+                            <img src="{{ message.user_data.image.url }}" alt="User profile" class="w-10 h-10 rounded-full border-2 border-purple-500">
                             <p class="font-semibold">{{ message.user_data.name }}</p>
                         </div>
-                        <p class="text-sm sm:text-base">{{ message.message }}</p>
+                        <p class="text-lg">{{ message.message }}</p>
                         
                         {% if message.file %}
                             {% with message.file.url|slice:"-4:" as file_extension %}
@@ -65,11 +66,11 @@
             <div class="bg-gradient-to-r from-purple-600 to-blue-600 h-1"></div>
 
             <!-- Message input form -->
-            <div class="p-3 sm:p-4 bg-gray-900 rounded-b-lg shadow-lg">
+            <div class="p-4 bg-gray-900 rounded-b-lg shadow-lg">
                 <form id="chat-form" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
                     {% csrf_token %}
-                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 items-center">
-                        <input type="text" id="message-input" name="message" class="w-full sm:flex-1 px-4 py-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-400" placeholder="Type your message...">
+                    <div class="flex space-x-4 items-center">
+                        <input type="text" id="message-input" name="message" class="w-full px-4 py-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-400" placeholder="Type your message...">
                         <input type="file" id="file-input" name="file" class="text-white bg-gray-700 rounded-lg">
                         <button type="submit" class="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-2 rounded-lg hover:bg-gradient-to-l transition duration-300">Send</button>
                     </div>
