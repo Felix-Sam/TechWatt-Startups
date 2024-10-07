@@ -29,13 +29,13 @@ def Chats(request):
     if request.method == 'POST':
         user_data = ChatFormData.objects.get(user=request.user)
         message_content = request.POST.get('message')
-        uploaded_file = request.FILES.get('file')  # Retrieve the uploaded file from the form
+        # uploaded_file = request.FILES.get('file')  # Retrieve the uploaded file from the form
 
         # Create a new message and save it to the database
         message = Message.objects.create(
             user_data=user_data,
             message=message_content,
-            file=uploaded_file  # CloudinaryField will handle the file upload
+            # file=uploaded_file  # CloudinaryField will handle the file upload
         )
         message.save()
 
