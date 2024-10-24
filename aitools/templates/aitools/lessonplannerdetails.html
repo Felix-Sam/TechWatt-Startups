@@ -1,0 +1,44 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Planner Tool</title>
+    <link rel="stylesheet" href="{% static 'userauth/css/styles.css' %}"> <!-- Include your CSS here -->
+    {% tailwind_css %}
+</head>
+<body class="bg-gray-100">
+
+    {% include 'userauth/navbar.html' %}
+    
+    <div class="mt-28 container mx-auto  p-6">
+        <h1 class="flex justify-center text-3xl font-bold mb-4">Lesson Planner Tool</h1>
+        <p class="text-lg text-gray-700 mb-4">
+            Our Lesson Planner tool helps educators create detailed lesson plans effortlessly. 
+            Simply provide the subject, topic, grade level, duration, and learning objectives, 
+            and our AI will generate a customized lesson plan tailored to your needs.
+        </p>
+        
+        <h2 class="text-xl font-semibold mt-6 mb-2">Features:</h2>
+        <ul class="list-disc list-inside mb-4">
+            <li>Easy-to-use interface</li>
+            <li>Customizable lesson plans</li>
+            <li>AI-generated content based on your input</li>
+        </ul>
+
+        <p class="text-lg text-gray-700 mb-4">
+            Whether you're a seasoned teacher or new to education, our tool will save you time 
+            and enhance your lesson planning experience.
+        </p>
+        
+        <a href="{% url 'lessonplanner' %}" class="bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition duration-200">
+            Use the Lesson Planner
+        </a>
+    </div>
+
+    {% include 'userauth/footer.html' %}
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head class="mb-12 text-center">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools</title>
+    {% tailwind_css %}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Custom futuristic style */
+        .glow {
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.6), 0 0 20px rgba(0, 229, 255, 0.6);
+        }
+        .hover-glow:hover {
+            box-shadow: 0 0 15px rgba(0, 229, 255, 1), 0 0 30px rgba(0, 229, 255, 1);
+        }
+        .bg-space {
+            background: radial-gradient(circle, rgba(23,32,42,1) 0%, rgba(17,25,35,1) 100%);
+            font-family: 'Poppins', sans-serif;
+        }
+        .input-field {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0, 229, 255, 0.6);
+            transition: all 0.3s ease;
+        }
+        .input-field:focus {
+            box-shadow: 0 0 10px rgba(0, 229, 255, 1), 0 0 20px rgba(0, 229, 255, 1);
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #00e5ff, #007aff);
+        }
+    </style>
+    <script>
+        function showLoading(button) {
+            button.innerText = 'Generating...';
+            button.disabled = true;
+        }
+    </script>
+</head>
+
+<body class="bg-space text-white min-h-screen flex flex-col">
+    {% include 'userauth/navbar.html' %}
+    <div class="flex flex-col justify-center items-center flex-grow mt-28">
+        <!-- Header Section -->
+        <header class="mb-12 text-center">
+            <h1 class="text-5xl font-bold glow mb-6">Lesson Planner</h1>
+            <p class="text-lg text-gray-300">Provide context to generate an AI-powered lesson plan for your class</p>
+        </header>
+
+        <!-- Form Section -->
+        <form method="POST" onsubmit="showLoading(this.querySelector('button'));" class="w-full max-w-lg bg-gray-800/50 p-8 rounded-2xl glow hover-glow transition-shadow duration-300 backdrop-blur-md">
+            {% csrf_token %}
+            <!-- Subject -->
+            <div class="mb-6">
+                <label for="subject" class="block text-sm font-semibold mb-2 text-gray-200">Subject</label>
+                <input type="text" id="subject" name="subject" class="input-field w-full p-3 rounded-lg text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="Enter subject (e.g., Science)" required>
+            </div>
+
+            <!-- Topic -->
+            <div class="mb-6">
+                <label for="topic" class="block text-sm font-semibold mb-2 text-gray-200">Topic</label>
+                <input type="text" id="topic" name="topic" class="input-field w-full p-3 rounded-lg text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="Enter topic (e.g., The Solar System)" required>
+            </div>
+
+            <!-- Grade -->
+            <div class="mb-6">
+                <label for="grade" class="block text-sm font-semibold mb-2 text-gray-200">Grade</label>
+                <input type="number" id="grade" name="grade" class="input-field w-full p-3 rounded-lg text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="Enter grade level (e.g., 5)" required>
+            </div>
+
+            <!-- Duration -->
+            <div class="mb-6">
+                <label for="duration" class="block text-sm font-semibold mb-2 text-gray-200">Duration</label>
+                <input type="text" id="duration" name="duration" class="input-field w-full p-3 rounded-lg text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="Enter duration (e.g., One hour)" required>
+            </div>
+
+            <!-- Learning Objectives -->
+            <div class="mb-6">
+                <label for="learning_objectives" class="block text-sm font-semibold mb-2 text-gray-200">Learning Objectives</label>
+                <textarea id="learning_objectives" name="learning_objectives" class="input-field w-full p-3 rounded-lg text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="Describe the learning objectives (e.g., students need to understand the solar system in a practical manner)" rows="4" required></textarea>
+            </div>
+
+            <!-- Guildlines -->
+            <div class="mb-6">
+                <label for="customization" class="block text-sm font-semibold mb-2 text-gray-200">Customization (Optional) </label>
+                <textarea id="customization" name="customization" class="input-field w-full p-3 rounded-lg text-gray-100 focus:ring-2 focus:ring-cyan-500 focus:outline-none" placeholder="Describe how you want the output (e.g., make the lesson interactive and easy to understand)" rows="4"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit" class="btn-gradient hover:bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg">Generate Lesson Plan</button>
+            </div>
+        </form>
+    </div>
+
+
+
+<!-- Futuristic Text Display Section -->
+<section class="flex justify-center">
+{% if output %}
+    <div class=" mt-12 md:max-w-2xl bg-gray-800/50 p-6 rounded-2xl glow futuristic-section">
+        <h2 class="text-xl font-bold mb-4">Generated Lesson Plan</h2>
+        <pre id="lessonPlanText" class="whitespace-pre-wrap text-gray-300">{{ output|safe }}</pre>
+        <button id="copyButton" class="mt-4 btn-gradient hover:bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 shadow-lg">
+            Copy to Clipboard
+        </button>
+    </div>
+{% endif %}
+</section>
+
+<script>
+    document.getElementById('copyButton').addEventListener('click', function() {
+        const text = document.getElementById('lessonPlanText').innerText; // Get the text content
+        navigator.clipboard.writeText(text) // Copy the text to the clipboard
+            .then(() => {
+                alert('Text copied to clipboard!'); // Alert for confirmation
+            })
+            .catch(err => {
+                console.error('Error copying text: ', err); // Log any errors
+            });
+    });
+</script>
+
+
+
+
+    
+    <!-- Footer Section -->
+     <div class="mt-10"></div>
+        {% include 'userauth/footer.html' %}
+
+</body>
+</html>

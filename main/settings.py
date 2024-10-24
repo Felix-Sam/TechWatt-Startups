@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'blog',
     'projects',
     'chatroom',
+    'aitools',
     'tailwind',
     'theme', 
     'django_browser_reload'

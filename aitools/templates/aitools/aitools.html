@@ -1,0 +1,84 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head class="mb-12 text-center">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tools</title>
+    {% tailwind_css %}
+    <script src="https://cdn.tailwindcss.com"></script>
+       <style>
+         /* Add some custom glow effects */
+         .glow {
+           box-shadow: 0 0 15px rgba(72, 187, 255, 0.7), 0 0 30px rgba(72, 187, 255, 0.7);
+         }
+         .hover-glow:hover {
+           box-shadow: 0 0 20px rgba(72, 187, 255, 1), 0 0 50px rgba(72, 187, 255, 1);
+         }
+         .bg-space {
+           background: linear-gradient(135deg, #1f2937, #111827); /* Dark space-like background */
+         }
+       </style>
+</head>
+
+<body class="bg-space text-white min-h-screen flex flex-col items-center justify-center"></body>>
+    <div class="min-h-screen py-3 px-3 flex flex-col ">
+     {% include 'userauth/navbar.html' %}
+
+       <header class="mb-12 text-center mt-20">
+         <h1 class="text-5xl font-bold glow mb-4">Explore AI Tools</h1>
+         <p class="text-lg text-gray-400">Connect with futuristic AI technologies to revolutionize your works</p>
+       </header>
+     
+       <!-- Tools List Section -->
+       <section class="mb-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 max-w-6xl">
+         <!-- Tool Card 1 -->
+         <div class="bg-gray-900 rounded-lg p-6 hover-glow transition-shadow duration-300">
+           <h2 class="text-2xl font-semibold mb-4">Lesson Planner</h2>
+           <p class="text-gray-300 mb-4">A powerful AI lesson planner designed for teachers for effective and quick lesson planning.</p>
+           <button class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"><a href="{% url 'lessonplannerdetails' %}">Learn More</a></button>
+         </div>
+     
+         <!-- Tool Card 2
+         <div class="bg-gray-900 rounded-lg p-6 hover-glow transition-shadow duration-300">
+           <h2 class="text-2xl font-semibold mb-4">AI Tool 2</h2>
+           <p class="text-gray-300 mb-4">An AI-powered image analyzer for identifying objects in real-time.</p>
+           <button class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">Learn More</button>
+         </div> -->
+     
+         <!-- Tool Card 3 -->
+         <!-- <div class="bg-gray-900 rounded-lg p-6 hover-glow transition-shadow duration-300">
+           <h2 class="text-2xl font-semibold mb-4">AI Tool 3</h2>
+           <p class="text-gray-300 mb-4">A deep learning tool for advanced computer vision applications.</p>
+           <button class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">Learn More</button>
+         </div> -->
+     
+         <!-- Tool Card 4 -->
+         <!-- <div class="bg-gray-900 rounded-lg p-6 hover-glow transition-shadow duration-300">
+           <h2 class="text-2xl font-semibold mb-4">AI Tool 4</h2>
+           <p class="text-gray-300 mb-4">An innovative speech-to-text converter with real-time transcription.</p>
+           <button class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">Learn More</button>
+         </div>
+      -->
+         <!-- Tool Card 5 -->
+         <!-- <div class="bg-gray-900 rounded-lg p-6 hover-glow transition-shadow duration-300">
+           <h2 class="text-2xl font-semibold mb-4">AI Tool 5</h2>
+           <p class="text-gray-300 mb-4">A predictive AI tool for analyzing data trends and forecasts.</p>
+           <button class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">Learn More</button>
+         </div> -->
+     
+         <!-- Tool Card 6 -->
+         <!-- <div class="bg-gray-900 rounded-lg p-6 hover-glow transition-shadow duration-300">
+           <h2 class="text-2xl font-semibold mb-4">AI Tool 6</h2>
+           <p class="text-gray-300 mb-4">A chatbot generator for building smart conversational agents.</p>
+           <button class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">Learn More</button>
+         </div> -->
+
+       </section>
+     
+       
+
+     {% include 'userauth/footer.html'%} 
+</div>  
+</body>
+</html>
